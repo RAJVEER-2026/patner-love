@@ -1,22 +1,56 @@
+/* ============================= */
+/* BODY + BACKGROUND ANIMATION */
+/* ============================= */
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff4e8d, #ff9a9e);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+
+    animation: hang 6s  ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
 }
 
+/* 4 Image Background Change */
+@keyframes hang {
+    0% {
+        background-image: url("images/download.jpg");
+    }
+    25% {
+        background-image: url("images/download(1).jpg");
+    }
+    50% {
+        background-image: url("images/download(2).jpg");
+    }
+    75% {
+        background-image: url("images/download(3).jpg");
+    }
+    100% {
+        background-image: url("images/download.jpg");
+    }
+}
+
+
+/* ============================= */
+/* MAIN CONTAINER */
+/* ============================= */
+
 .container {
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     padding: 35px;
+    border: 2px solid;
     border-radius: 20px;
     width: 350px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    animation: fadeIn 1s ease-in-out;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease-in-out infinite;
+            room 1s ease-in-out infinite;
 }
 
 h1 {
@@ -62,7 +96,63 @@ button:hover {
     color: #ff4e8d;
 }
 
+/* Fade In Animation */
 @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(-20px);}
-    to {opacity: 1; transform: translateY(0);}
+    
+    0%{
+        border-color: red;
+    }
+    50%{
+        border-color: green;
+    }
+    100%{
+        border-color: blue;
+    }
+}
+@keyframes room {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 15px;
+        height: auto;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .result {
+        font-size: 18px;
+    }
 }
