@@ -9,22 +9,25 @@ document.getElementById("calculateBtn").addEventListener("click", function () {
         return;
     }
 
-    // unique key (same names = same key)
+    // special case (Somnath + Debasmita = 100%)
+    if (
+        (name1 === "somnath" && name2 === "debasmita") ||
+        (name1 === "debasmita" && name2 === "somnath")
+    ) {
+        showResult(name1, name2, 100);
+        return;
+    }
+
+    // unique key
     var loveKey = name1 + "_" + name2;
 
-    // check localStorage
     var storedScore = localStorage.getItem(loveKey);
 
     if (storedScore !== null) {
-        // show old result
         showResult(name1, name2, storedScore);
     } else {
-        // generate new random score
         var loveScore = Math.floor(Math.random() * 101);
-
-        // save to localStorage
         localStorage.setItem(loveKey, loveScore);
-
         showResult(name1, name2, loveScore);
     }
 });
